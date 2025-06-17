@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bible Verse Overlay</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      font-family: sans-serif;
+      font-size: 24px;
+      color: white;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="verse">Loading verse...</div>
+  <script>
+    fetch("https://bible-api.com/john+3:16")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("verse").textContent = `${data.reference}: "${data.text.trim()}"`;
+      });
+  </script>
+</body>
+</html>
